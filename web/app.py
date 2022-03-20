@@ -33,6 +33,31 @@ def people():
     print(data)
     return render_template('people.html', value=data)
 
+@app.route('/document', methods=['GET'])
+
+def document():
+    return render_template('document.html')
+
+
+@app.route('/document_detail', methods=['POST'])
+def document_detail():
+    Id_book = request.form['Id_book']
+    title = request.form['title']
+    number_pages = request.form['number_pages']
+    category = request.form['category']
+    author = request.form['author']
+    q = Document1(Id_book=Id_book, title=title, number_pages=number_pages, category=category, author=author)
+    model.append(q)
+    return render_template('document_detail.html', value=q)
+
+
+@app.route('/Document1')
+def Document1():
+    dato = [(i.Id_book, i.title, i.number_pages, i.category, i.author) for i in model]
+    print(dato)
+    return render_template('Document1.html', value=dato)
+
+
 
 if __name__ == '__main__':
     app.run()
