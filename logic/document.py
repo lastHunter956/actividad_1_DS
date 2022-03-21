@@ -1,10 +1,9 @@
-class Document1(object):
+class Document(object):
     """
     Class used to represent an Person
     """
 
-    def __init__(self, Id_book: int, title: str = 'Title', number_pages: int = 0, category: str = '',
-                 author: str = ''):
+    def __init__(self, Id_book: int, title: str = 'Title', number_pages: int = 0, category: str = '', author: str = ''):
         """ Person constructor object.
 
         :param Id_book: id of person.
@@ -29,13 +28,13 @@ class Document1(object):
     @property
     def Id_book(self) -> int:
         """ Returns id person of the Book.
-          :returns: id of Book.
+          :returns: id Book.
           :rtype: int
         """
         return self._Id_book
 
     @Id_book.setter
-    def id_person(self, Id_book: int):
+    def Id_book(self, Id_book: int):
         """ The id of the book.
         :param Id_book: id of book.
         :type: int
@@ -67,7 +66,7 @@ class Document1(object):
         return self._number_pages
 
     @number_pages.setter
-    def number_of_pages(self, number_pages: int):
+    def number_pages(self, number_pages: int):
         """ the number of pages the book.
         :param number_pages: the number of pages the book.
         :type: int
@@ -113,11 +112,8 @@ class Document1(object):
         """
         return '({0}, {1}, {2}, {3}, {4})'.format(self.Id_book, self.title, self.number_pages, self.category, self.author)
 
-
-
 if __name__ == '__main__':
-
-    edwin = Document1(Id_book=73577376, title="hola ", number_pages=350, category="Novels", author="Won")
-    edwin.name = "Edwin. A"
-    print(edwin)
+    book = Document(Id_book=73577376, title="hola ", number_pages=350, category="Novels", author="Won")
+    book.title = "Almendra"
+    print(book)
 

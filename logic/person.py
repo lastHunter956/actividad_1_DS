@@ -3,7 +3,7 @@ class Person(object):
     Class used to represent an Person
     """
 
-    def __init__(self, id_person: int, name: str = 'Name', last_name: str = "LastName"):
+    def __init__(self, id_person: int, name: str = 'Name', last_name: str = "LastName") -> object:
         """ Person constructor object.
 
         :param id_person: id of person.
