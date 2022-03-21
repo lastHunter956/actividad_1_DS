@@ -6,7 +6,7 @@ from logic.document import Document
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 model = []
-
+modelb = []
 
 @app.route("/")
 def index():
@@ -38,6 +38,7 @@ def people():
 def document():
     return render_template('document.html')
 
+
 @app.route('/document_detail', methods=['POST'])
 def document_detail():
     Id_book = request.form['Id_book']
@@ -45,16 +46,16 @@ def document_detail():
     number_pages = request.form['number_pages']
     category = request.form['category']
     author = request.form['author']
-    q = Document1(Id_book=Id_book, title=title, number_pages=number_pages, category=category, author=author)
-    model.append(q)
+    q = Document(Id_book=Id_book, title=title, number_pages=number_pages, category=category, author=author)
+    modelb.append(q)
     return render_template('document_detail.html', value=q)
 
 
 @app.route('/Document1')
-def Document1():
-    dato = [(i.Id_book, i.title, i.number_pages, i.category, i.author) for i in model]
-    print(dato)
-    return render_template('Document1.html', value=dato)
+def document1():
+    datob = [(i.Id_book, i.title, i.number_pages, i.category, i.author) for i in modelb]
+    print(datob)
+    return render_template('Document1.html', value=datob)
 
 if __name__ == '__main__':
     app.run()
